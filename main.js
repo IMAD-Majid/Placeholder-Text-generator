@@ -37,18 +37,26 @@ function capitalize(strarray){
 function generateWord(){
 	let generated = '';
 	for (let i=0; i<getRandom(minL, maxL); i++){
-		if (getRandom(0, 10) <= 4){
-			generated += getRanItem(vowels);
-			while (generated.length > 1 && (generated.slice(generated.length-2, generated.length-1) == generated.slice(generated.length-1, generated.length))){
-				generated = generated.slice(0, generated.length-1)
+		if (getRandom(0, 10) <= 8){
+			if (consonants.indexOf(generated.slice(generated.length-1)) != -1){
 				generated += getRanItem(vowels);
+				while (generated.length > 1 && (generated.slice(generated.length-2, generated.length-1) == generated.slice(generated.length-1, generated.length))){
+					generated = generated.slice(0, generated.length-1)
+					generated += getRanItem(vowels);
+				}
+				continue
+			} else{
+				generated += getRanItem(consonants);
+				while (generated.length > 1 && (generated.slice(generated.length-2, generated.length-1) == generated.slice(generated.length-1, generated.length))){
+					generated = generated.slice(0, generated.length-1)
+					generated += getRanItem(consonants);
+				}
 			}
-			continue
 		} else{
-			generated += getRanItem(consonants);
+			generated += getRanItem(getRanItem([vowels, consonants]));
 			while (generated.length > 1 && (generated.slice(generated.length-2, generated.length-1) == generated.slice(generated.length-1, generated.length))){
 				generated = generated.slice(0, generated.length-1)
-				generated += getRanItem(consonants);
+				generated += getRanItem(getRanItem([vowels, consonants]));
 			}
 		}
 	}
