@@ -6,6 +6,8 @@
 
 
 # exe
+<html>
+  <head>
   <style>
     * {
       font-family:sans-serif;
@@ -29,6 +31,8 @@
       font-size:12px;
     }
   </style>
+</head>
+<body>
   <center>
   <div>
   <!--
@@ -74,3 +78,5 @@
 <script src="main.js">
   
 </script>
+</body>
+</html>
